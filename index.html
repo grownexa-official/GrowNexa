@@ -1,0 +1,5403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GrowthService | Gaming, Social Media & Digital Services</title>
+
+<meta name="author" content="GrowthService">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#111827">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet"
+>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Inter,Arial,sans-serif;
+background:#f5f7fb;
+color:#475569;
+line-height:1.65;
+overflow-x:hidden;
+}
+
+body.lock{
+overflow:hidden;
+}
+
+a{
+text-decoration:none;
+}
+
+button,
+input{
+font-family:inherit;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(255,255,255,.96);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #e5e7eb;
+}
+
+.header{
+max-width:1250px;
+height:72px;
+margin:auto;
+padding:0 18px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:21px;
+font-weight:900;
+color:#050505;
+}
+
+.logo-box{
+width:42px;
+height:42px;
+border-radius:12px;
+display:grid;
+place-items:center;
+color:#fff;
+font-weight:900;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+
+.menu{
+width:43px;
+height:43px;
+border:0;
+border-radius:11px;
+background:#f1f5f9;
+color:#111827;
+font-size:21px;
+cursor:pointer;
+}
+
+.menu-overlay{
+position:fixed;
+inset:0;
+z-index:5000;
+background:rgba(15,23,42,.48);
+display:none;
+}
+
+.menu-overlay.active{
+display:block;
+}
+
+.side-menu{
+position:absolute;
+right:0;
+top:0;
+width:min(350px,90%);
+height:100%;
+padding:24px 20px;
+background:#fff;
+box-shadow:-15px 0 40px rgba(0,0,0,.18);
+overflow-y:auto;
+animation:slideMenu .2s ease;
+}
+
+@keyframes slideMenu{
+
+from{
+transform:translateX(100%);
+}
+
+to{
+transform:translateX(0);
+}
+
+}
+
+.menu-head{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:22px;
+}
+
+.menu-head h3{
+color:#050505;
+font-size:20px;
+}
+
+.menu-close{
+width:38px;
+height:38px;
+border:0;
+border-radius:10px;
+background:#f1f5f9;
+font-size:20px;
+cursor:pointer;
+}
+
+.menu-link{
+display:block;
+width:100%;
+border:0;
+background:transparent;
+text-align:left;
+padding:13px;
+margin:4px 0;
+border-radius:10px;
+color:#111827;
+font-weight:600;
+cursor:pointer;
+}
+
+.menu-link:hover{
+background:#eff6ff;
+color:#2563eb;
+}
+
+.hero{
+max-width:1250px;
+margin:auto;
+padding:65px 18px 35px;
+text-align:center;
+}
+
+.badge{
+display:inline-block;
+padding:7px 15px;
+border-radius:50px;
+background:#e0e7ff;
+color:#3730a3;
+font-size:12px;
+font-weight:800;
+margin-bottom:20px;
+}
+
+.hero h1{
+color:#050505;
+font-size:clamp(34px,6vw,60px);
+line-height:1.08;
+font-weight:900;
+margin-bottom:18px;
+}
+
+.hero h1 span{
+color:#2563eb;
+}
+
+.hero-text{
+max-width:780px;
+margin:auto;
+color:#64748b;
+font-size:16px;
+}
+
+.search{
+max-width:730px;
+margin:28px auto 0;
+display:flex;
+padding:7px;
+background:#fff;
+border:1px solid #e2e8f0;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(15,23,42,.06);
+}
+
+.search input{
+flex:1;
+min-width:0;
+border:0;
+outline:0;
+padding:13px 14px;
+font-size:15px;
+color:#111827;
+}
+
+.search button{
+border:0;
+padding:0 21px;
+border-radius:11px;
+background:#2563eb;
+color:#fff;
+font-weight:800;
+cursor:pointer;
+}
+
+/* =====================================================
+   COMMON
+===================================================== */
+
+main{
+max-width:1250px;
+margin:auto;
+padding:0 18px 70px;
+}
+
+.section{
+margin-top:65px;
+}
+
+.title{
+text-align:center;
+color:#050505;
+font-size:clamp(27px,4vw,38px);
+line-height:1.2;
+font-weight:900;
+margin-bottom:10px;
+}
+
+.subtitle{
+max-width:750px;
+margin:0 auto 30px;
+text-align:center;
+color:#718096;
+font-size:15px;
+}
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+align-items:stretch;
+}
+
+.service-card{
+height:auto;
+min-height:100%;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:19px;
+padding:28px 22px;
+text-align:center;
+box-shadow:0 7px 25px rgba(15,23,42,.04);
+transition:.22s;
+overflow:visible;
+}
+
+.service-card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(15,23,42,.09);
+}
+
+.service-icon{
+width:62px;
+height:62px;
+margin:0 auto 16px;
+border-radius:17px;
+display:grid;
+place-items:center;
+font-size:28px;
+background:#eff6ff;
+}
+
+.service-card h3{
+color:#030303;
+font-size:20px;
+font-weight:900;
+margin-bottom:9px;
+}
+
+.service-card p{
+color:#667085;
+font-size:15px;
+min-height:76px;
+height:auto;
+}
+
+.action{
+display:inline-block;
+margin-top:17px;
+padding:10px 18px;
+border:0;
+border-radius:10px;
+background:#111827;
+color:#fff;
+font-size:13px;
+font-weight:800;
+transition:.2s;
+cursor:pointer;
+}
+
+.action:hover{
+background:#2563eb;
+}
+
+/* =====================================================
+   FEATURE
+===================================================== */
+
+.feature-box{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+align-items:stretch;
+}
+
+.feature{
+height:auto;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:20px;
+padding:28px;
+text-align:center;
+overflow:visible;
+}
+
+.feature .big-icon{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.feature h3{
+color:#050505;
+font-size:22px;
+font-weight:900;
+margin-bottom:9px;
+}
+
+.feature p{
+color:#667085;
+font-size:15px;
+}
+
+.feature ul{
+list-style:none;
+margin:17px 0;
+}
+
+.feature li{
+color:#64748b;
+font-size:14px;
+margin:7px 0;
+}
+.info{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:20px;
+padding:30px;
+text-align:center;
+height:auto;
+overflow:visible;
+}
+
+.info h3{
+color:#050505;
+font-size:22px;
+font-weight:900;
+margin-bottom:10px;
+}
+
+.info p{
+color:#687588;
+font-size:15px;
+max-width:900px;
+margin:10px auto;
+}
+
+/* =====================================================
+   PLATFORMS
+===================================================== */
+
+.platform-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+align-items:stretch;
+}
+
+.platform{
+height:auto;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:18px;
+padding:25px;
+text-align:center;
+overflow:visible;
+}
+
+.platform-icon{
+width:65px;
+height:65px;
+margin:0 auto 15px;
+border-radius:18px;
+display:grid;
+place-items:center;
+font-size:29px;
+background:#f1f5f9;
+}
+
+.platform h3{
+color:#020202;
+font-size:20px;
+font-weight:900;
+margin-bottom:8px;
+}
+
+.platform p{
+color:#667085;
+font-size:15px;
+margin-bottom:17px;
+}
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+align-items:stretch;
+}
+
+.product{
+height:auto;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:16px;
+padding:17px;
+text-align:center;
+overflow:visible;
+}
+
+.product-img{
+height:110px;
+border-radius:12px;
+background:#f8fafc;
+display:grid;
+place-items:center;
+font-size:37px;
+margin-bottom:14px;
+overflow:hidden;
+}
+
+.product h3{
+color:#080808;
+font-size:15px;
+font-weight:800;
+line-height:1.35;
+}
+
+.product p{
+color:#718096;
+font-size:13px;
+margin-top:7px;
+}
+
+.product-btn{
+display:block;
+margin-top:13px;
+padding:9px;
+border-radius:9px;
+background:#111827;
+color:#fff;
+font-size:12px;
+font-weight:800;
+}
+
+/* =====================================================
+   SHARE
+===================================================== */
+
+.share-box{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:20px;
+padding:30px;
+text-align:center;
+}
+
+.share-box h3{
+color:#050505;
+font-size:23px;
+font-weight:900;
+margin-bottom:7px;
+}
+
+.share-box p{
+color:#6b7280;
+font-size:14px;
+margin-bottom:20px;
+}
+
+.share-buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.share-btn{
+border:0;
+padding:11px 16px;
+border-radius:10px;
+color:#fff;
+background:#111827;
+cursor:pointer;
+font-size:13px;
+font-weight:800;
+}
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+max-width:850px;
+margin:auto;
+}
+
+details{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:14px;
+padding:17px 19px;
+margin-bottom:10px;
+height:auto;
+overflow:visible;
+}
+
+summary{
+color:#050505;
+font-weight:800;
+cursor:pointer;
+}
+
+details p{
+color:#6b7280;
+font-size:14px;
+margin-top:10px;
+}
+
+/* =====================================================
+   REVIEWS
+===================================================== */
+
+.review-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+align-items:stretch;
+}
+
+.review{
+height:auto;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:17px;
+padding:22px;
+text-align:center;
+}
+
+.stars{
+color:#f59e0b;
+letter-spacing:3px;
+margin-bottom:9px;
+}
+
+.review p{
+color:#6b7280;
+font-size:13px;
+}
+
+.review strong{
+display:block;
+color:#111827;
+margin-top:11px;
+font-size:13px;
+}
+
+/* =====================================================
+   CONTINUE
+===================================================== */
+
+.continue{
+margin-top:65px;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:21px;
+padding:35px 20px;
+text-align:center;
+}
+
+.continue h2{
+color:#050505;
+font-size:27px;
+font-weight:900;
+}
+
+.continue p{
+color:#6b7280;
+font-size:14px;
+margin-top:7px;
+}
+
+.timer{
+width:78px;
+height:78px;
+margin:21px auto;
+display:grid;
+place-items:center;
+border-radius:50%;
+background:#eff6ff;
+border:5px solid #dbeafe;
+color:#2563eb;
+font-size:24px;
+font-weight:900;
+}
+
+.continue-btn{
+display:inline-block;
+padding:13px 30px;
+border-radius:11px;
+background:#2563eb;
+color:#fff;
+font-size:15px;
+font-weight:900;
+opacity:.4;
+pointer-events:none;
+transition:.2s;
+}
+
+.continue-btn.active{
+opacity:1;
+pointer-events:auto;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+background:#0b1120;
+padding:65px 18px 25px;
+color:#94a3b8;
+border-top:1px solid #1e293b;
+}
+
+.footer{
+max-width:1250px;
+margin:auto;
+}
+
+.footer-brand{
+max-width:850px;
+margin:0 auto 48px;
+padding:28px;
+text-align:center;
+border:1px solid #263247;
+border-radius:20px;
+background:rgba(255,255,255,.025);
+}
+
+.footer-logo{
+color:#fff;
+font-size:25px;
+font-weight:900;
+margin-bottom:10px;
+}
+
+.footer-brand p{
+max-width:700px;
+margin:auto;
+color:#94a3b8;
+font-size:13px;
+}
+
+.footer-email{
+display:inline-flex;
+align-items:center;
+gap:8px;
+margin-top:15px;
+padding:10px 15px;
+border-radius:10px;
+border:1px solid #29364c;
+background:#111a2c;
+color:#cbd5e1;
+font-size:13px;
+}
+
+.footer-section{
+margin-top:35px;
+}
+
+.footer-section-title{
+color:#fff;
+text-align:center;
+font-size:18px;
+font-weight:900;
+margin-bottom:18px;
+}
+
+.footer-cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+max-width:950px;
+margin:auto;
+}
+
+.footer-card{
+min-height:62px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:9px;
+padding:13px 14px;
+border:1px solid #263247;
+border-radius:12px;
+background:#101827;
+color:#cbd5e1;
+font-size:13px;
+font-weight:700;
+transition:.2s;
+}
+
+.footer-card:hover{
+border-color:#3b82f6;
+background:#13213a;
+color:#fff;
+transform:translateY(-2px);
+}
+
+.footer-icon{
+width:29px;
+height:29px;
+display:grid;
+place-items:center;
+border-radius:8px;
+background:#1e293b;
+font-size:14px;
+}
+
+.copyright{
+border-top:1px solid #1e293b;
+margin-top:48px;
+padding-top:22px;
+text-align:center;
+font-size:12px;
+color:#64748b;
+}
+
+.copyright span{
+color:#94a3b8;
+}
+
+/* =====================================================
+   COOKIE
+===================================================== */
+
+.cookie{
+position:fixed;
+left:15px;
+right:15px;
+bottom:15px;
+z-index:7000;
+max-width:760px;
+margin:auto;
+padding:17px;
+background:#fff;
+border:1px solid #e2e8f0;
+border-radius:15px;
+box-shadow:0 15px 45px rgba(0,0,0,.18);
+display:none;
+}
+
+.cookie.show{
+display:block;
+}
+
+.cookie p{
+color:#64748b;
+font-size:13px;
+}
+
+.cookie button{
+margin-top:10px;
+border:0;
+border-radius:9px;
+padding:9px 18px;
+background:#2563eb;
+color:#fff;
+font-weight:800;
+cursor:pointer;
+}
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+position:fixed;
+inset:0;
+z-index:8000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:rgba(15,23,42,.62);
+}
+
+.modal.show{
+display:flex;
+}
+
+.modal-box{
+position:relative;
+width:min(600px,100%);
+max-height:88vh;
+overflow-y:auto;
+padding:30px;
+border-radius:20px;
+background:#fff;
+text-align:center;
+}
+
+.modal-box h2{
+color:#050505;
+font-size:25px;
+font-weight:900;
+margin-bottom:8px;
+}
+
+.modal-box p{
+color:#667085;
+font-size:15px;
+margin:10px 0;
+}
+
+.modal-close{
+position:absolute;
+right:12px;
+top:12px;
+width:35px;
+height:35px;
+border:0;
+border-radius:9px;
+background:#f1f5f9;
+font-size:19px;
+cursor:pointer;
+}
+
+.modal-list{
+list-style:none;
+text-align:left;
+margin:18px auto;
+max-width:470px;
+}
+
+.modal-list li{
+padding:9px 0;
+border-bottom:1px solid #eef2f7;
+color:#596579;
+font-size:14px;
+}
+
+.modal-actions{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:18px;
+}
+
+.modal-actions a,
+.modal-actions button{
+border:0;
+border-radius:10px;
+padding:11px 17px;
+background:#111827;
+color:#fff;
+font-weight:800;
+cursor:pointer;
+}
+
+.modal-actions .blue{
+background:#2563eb;
+}
+
+.modal-actions .green{
+background:#16a34a;
+}
+
+.modal-actions .copy{
+background:#111827;
+}
+
+.contact-email-box{
+margin:18px auto;
+max-width:480px;
+padding:16px;
+border:1px solid #dbeafe;
+background:#eff6ff;
+border-radius:14px;
+}
+
+.contact-email-label{
+display:block;
+color:#64748b;
+font-size:12px;
+font-weight:700;
+margin-bottom:6px;
+}
+
+.contact-email{
+display:block;
+color:#111827;
+font-size:16px;
+font-weight:900;
+word-break:break-all;
+}
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+position:fixed;
+left:50%;
+bottom:25px;
+transform:translateX(-50%) translateY(20px);
+background:#111827;
+color:#fff;
+padding:11px 16px;
+border-radius:10px;
+font-size:13px;
+z-index:10000;
+opacity:0;
+pointer-events:none;
+transition:.25s;
+}
+
+.toast.show{
+opacity:1;
+transform:translateX(-50%) translateY(0);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
+
+.service-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.product-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media(max-width:800px){
+
+.footer-cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:700px){
+
+.hero{
+padding-top:45px;
+}
+
+.service-grid,
+.feature-box,
+.platform-grid,
+.review-grid{
+grid-template-columns:1fr;
+}
+
+.product-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.footer-cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+.search button{
+padding:0 14px;
+}
+
+.modal-box{
+padding:27px 19px;
+}
+
+}
+
+@media(max-width:450px){
+
+.footer-cards{
+grid-template-columns:1fr;
+}
+
+.product-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.service-card{
+padding:24px 17px;
+}
+
+}
+/* =====================================================
+   ORIGINAL INFORMATION SECTIONS
+===================================================== */
+
+.original-content{
+margin-top:55px;
+}
+
+.original-card{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:20px;
+padding:30px;
+margin-bottom:20px;
+box-shadow:0 7px 25px rgba(15,23,42,.04);
+text-align:center;
+}
+
+.original-card h2{
+color:#050505;
+font-size:clamp(24px,4vw,32px);
+font-weight:900;
+text-align:center;
+line-height:1.25;
+margin-bottom:10px;
+}
+
+.original-intro{
+max-width:800px;
+margin:0 auto 25px;
+text-align:center;
+color:#667085;
+font-size:15px;
+}
+
+.original-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+}
+
+.original-item{
+padding:20px;
+border:1px solid #e5e7eb;
+border-radius:15px;
+background:#f8fafc;
+text-align:center;
+}
+
+.original-item-icon{
+width:48px;
+height:48px;
+display:grid;
+place-items:center;
+border-radius:13px;
+background:#eff6ff;
+font-size:23px;
+margin:0 auto 13px;
+}
+
+.original-item h3{
+color:#111827;
+font-size:17px;
+font-weight:900;
+margin-bottom:7px;
+text-align:center;
+}
+
+.original-item p{
+color:#667085;
+font-size:14px;
+line-height:1.7;
+text-align:center;
+}
+
+.original-list{
+max-width:900px;
+margin:20px auto 0;
+padding:0;
+list-style:none;
+}
+
+.original-list li{
+padding:13px 15px;
+margin-bottom:9px;
+border:1px solid #e5e7eb;
+border-radius:11px;
+background:#f8fafc;
+color:#596579;
+font-size:14px;
+text-align:center;
+}
+
+.original-list li strong{
+color:#111827;
+}
+
+.original-note{
+max-width:900px;
+margin:20px auto 0;
+padding:16px 18px;
+border-left:4px solid #2563eb;
+border-radius:10px;
+background:#eff6ff;
+color:#526174;
+font-size:14px;
+text-align:center;
+}
+
+.original-steps{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:12px;
+margin-top:25px;
+}
+
+.original-step{
+padding:18px 14px;
+text-align:center;
+border:1px solid #e5e7eb;
+border-radius:14px;
+background:#f8fafc;
+}
+
+.step-number{
+width:38px;
+height:38px;
+margin:0 auto 10px;
+display:grid;
+place-items:center;
+border-radius:50%;
+background:#2563eb;
+color:#fff;
+font-weight:900;
+}
+
+.original-step h3{
+color:#111827;
+font-size:15px;
+margin-bottom:6px;
+text-align:center;
+}
+
+.original-step p{
+color:#667085;
+font-size:13px;
+text-align:center;
+}
+
+.original-contact{
+text-align:center;
+background:#111827;
+border-radius:20px;
+padding:32px 22px;
+color:#fff;
+}
+
+.original-contact h2{
+color:#fff;
+text-align:center;
+}
+
+.original-contact p{
+max-width:720px;
+margin:0 auto 20px;
+color:#cbd5e1;
+font-size:14px;
+text-align:center;
+}
+
+.original-contact-btn{
+display:inline-block;
+padding:12px 23px;
+border-radius:10px;
+background:#2563eb;
+color:#fff;
+font-size:14px;
+font-weight:900;
+text-align:center;
+}
+.original-contact-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.original-contact-btn:not(.disabled) {
+  opacity: 1;
+  cursor: pointer;
+}
+@media(max-width:900px){
+
+.original-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.original-steps{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.original-card{
+padding:23px 17px;
+}
+
+.original-grid{
+grid-template-columns:1fr;
+}
+
+.original-steps{
+grid-template-columns:1fr;
+}
+
+.original-item{
+padding:18px;
+text-align:center;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
+<header>
+
+<div class="header">
+
+<a href="index.html" class="logo">
+
+<span class="logo-box">
+G
+</span>
+
+<span data-edit-key="siteName">
+GrowthService
+</span>
+
+</a>
+
+<button
+class="menu"
+id="menuButton"
+aria-label="Open menu"
+type="button"
+>
+☰
+</button>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+SIDE MENU
+===================================================== -->
+
+<div class="menu-overlay" id="menuOverlay">
+
+<div class="side-menu">
+
+<div class="menu-head">
+
+<h3 data-edit-key="siteName">
+GrowthService
+</h3>
+
+<button
+class="menu-close"
+id="menuClose"
+type="button"
+>
+×
+</button>
+
+</div>
+
+<a href="index.html" class="menu-link">
+Home
+</a>
+
+<button
+class="menu-link"
+data-info="services"
+type="button"
+>
+Services
+</button>
+
+<button
+class="menu-link"
+data-info="gaming"
+type="button"
+>
+Gaming
+</button>
+
+<button
+class="menu-link"
+data-info="products"
+type="button"
+>
+Products
+</button>
+
+<button
+class="menu-link"
+data-info="about"
+type="button"
+>
+About Us
+</button>
+
+<button
+class="menu-link"
+data-info="privacy"
+type="button"
+>
+Privacy Policy
+</button>
+
+<button
+class="menu-link"
+data-info="terms"
+type="button"
+>
+Terms & Conditions
+</button>
+
+<button
+class="menu-link"
+data-info="disclaimer"
+type="button"
+>
+Disclaimer
+</button>
+<a href="contact.html" class="menu-link">
+    Contact Us →
+</a>
+</div>
+
+</div>
+<section class="hero">
+
+<span
+class="badge"
+data-edit-key="heroBadge"
+>
+DIGITAL • GAMING • CREATOR • WEB
+</span>
+
+<h1 data-edit-key="heroHeading">
+Build. Grow. <span>Explore.</span>
+</h1>
+<p
+class="hero-text"
+data-edit-key="heroDescription"
+>
+GrowthService is an independent digital platform providing gaming resources, creator support, social media guidance, website development, SEO guidance and digital solutions for creators, gamers, businesses and personal projects.
+</p>
+<div class="search">
+
+<input
+type="search"
+id="searchInput"
+autocomplete="off"
+placeholder=Search
+>
+
+<button
+id="searchButton"
+type="button"
+>
+Search
+</button>
+</div>
+</section>
+<main>
+<section
+class="section"
+id="services"
+>
+
+<h2 class="title">
+Our Digital Services
+</h2>
+
+<p class="subtitle">
+Explore our main digital service categories designed for creators, gamers, social-media users, businesses and personal projects. Tap any service to read a clear overview of what it includes, understand the available features and explore the type of support that may be suitable for your requirements. From YouTube and social-media guidance to gaming resources, website development, SEO, video editing, thumbnails and other digital solutions, GrowthService brings multiple useful categories together in one simple platform.
+</p>
+
+<div
+class="service-grid"
+id="serviceGrid"
+>
+</div>
+
+</section>
+
+
+<!-- =====================================================
+WEBSITE CREATION
+===================================================== -->
+
+<section class="section">
+
+<h2 class="title">
+Professional Website Creation
+</h2>
+
+<p class="subtitle">
+Have a business idea or online project? A custom website can help create a professional digital presence.
+</p>
+
+<div class="feature-box">
+
+<div class="feature">
+
+<div class="big-icon">
+🌐
+</div>
+
+<h3>
+Website Development
+</h3>
+
+<p>
+Custom responsive websites can be created for business, portfolio, gaming, creator, information and service projects.
+</p>
+
+<ul>
+
+<li>✓ Mobile responsive</li>
+<li>✓ PC friendly</li>
+<li>✓ Modern interface</li>
+<li>✓ Contact system</li>
+<li>✓ Multiple pages</li>
+<li>✓ Custom sections</li>
+
+</ul>
+
+<button
+class="action explore"
+data-service="website"
+type="button"
+>
+Explore Website Service
+</button>
+
+</div>
+
+
+<div class="feature">
+
+<div class="big-icon">
+⚙️
+</div>
+
+<h3>
+Website Management
+</h3>
+
+<p>
+Content, pages and selected sections can be updated according to project requirements.
+</p>
+
+<ul>
+
+<li>✓ Content updates</li>
+<li>✓ New pages</li>
+<li>✓ Service sections</li>
+<li>✓ Basic maintenance</li>
+<li>✓ Design improvements</li>
+<li>✓ Future expansion</li>
+
+</ul>
+
+<button
+class="action contact-trigger"
+type="button"
+>
+Contact Owner
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PLATFORMS
+===================================================== -->
+
+<section class="section">
+
+<h2 class="title">
+External Resources section
+</h2>
+
+<p class="subtitle">
+Useful information and direct access to popular platforms. GrowthService is independent from these platforms.
+</p>
+
+<div class="platform-grid">
+
+
+<div class="platform">
+
+<div class="platform-icon">
+▶️
+</div>
+
+<h3>YouTube</h3>
+
+<p>
+Video, Shorts, live streams and creator publishing platform.
+</p>
+
+<a
+class="action"
+href="https://www.youtube.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open YouTube
+</a>
+
+</div>
+
+
+<div class="platform">
+
+<div class="platform-icon">
+📸
+</div>
+
+<h3>Instagram</h3>
+
+<p>
+Social platform for photos, videos, Stories, Reels and creators.
+</p>
+
+<a
+class="action"
+href="https://www.instagram.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open Instagram
+</a>
+
+</div>
+
+
+<div class="platform">
+
+<div class="platform-icon">
+f
+</div>
+
+<h3>Facebook</h3>
+
+<p>
+Social platform supporting pages, groups, communities and videos.
+</p>
+
+<a
+class="action"
+href="https://www.facebook.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open Facebook
+</a>
+
+</div>
+
+
+<div class="platform">
+
+<div class="platform-icon">
+💬
+</div>
+
+<h3>WhatsApp</h3>
+
+<p>
+Messaging platform useful for communication and customer contact.
+</p>
+
+<a
+class="action"
+href="https://www.whatsapp.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open WhatsApp
+</a>
+
+</div>
+
+
+<div class="platform">
+
+<div class="platform-icon">
+✈️
+</div>
+
+<h3>Telegram</h3>
+
+<p>
+Messaging and community platform for channels, groups and sharing.
+</p>
+
+<a
+class="action"
+href="https://telegram.org/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open Telegram
+</a>
+
+</div>
+
+
+<div class="platform">
+
+<div class="platform-icon">
+🎵
+</div>
+
+<h3>TikTok</h3>
+
+<p>
+Short-form video platform for creators and entertainment content.
+</p>
+
+<a
+class="action"
+href="https://www.tiktok.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open TikTok
+</a>
+
+</div>
+
+
+<div class="platform">
+
+<div class="platform-icon">
+💼
+</div>
+
+<h3>LinkedIn</h3>
+
+<p>
+Professional networking platform for businesses, careers and creators.
+</p>
+
+<a
+class="action"
+href="https://www.linkedin.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open LinkedIn
+</a>
+
+</div>
+
+
+<div class="platform">
+
+<div class="platform-icon">
+🐦
+</div>
+
+<h3>X</h3>
+
+<p>
+Social platform for posts, discussions, news and online communities.
+</p>
+
+<a
+class="action"
+href="https://x.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open X
+</a>
+
+</div>
+
+
+<div class="platform">
+
+<div class="platform-icon">
+🎨
+</div>
+
+<h3>Pinterest</h3>
+
+<p>
+Visual discovery platform for ideas, designs, inspiration and content.
+</p>
+
+<a
+class="action"
+href="https://www.pinterest.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open Pinterest
+</a>
+
+</div>
+
+
+<div class="platform">
+
+<div class="platform-icon">
+💻
+</div>
+
+<h3>GitHub</h3>
+
+<p>
+Developer platform for code hosting, collaboration and open-source projects.
+</p>
+
+<a
+class="action"
+href="https://github.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open GitHub
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+GAMING
+===================================================== -->
+
+<section class="section">
+
+<h2 class="title">
+Gaming & Free Fire
+</h2>
+
+<p class="subtitle">
+A dedicated area for gaming creators and players.
+</p>
+
+<div class="info">
+
+<h3>
+Gaming Creator Resources
+</h3>
+
+<p>
+Gaming content has become a major part of online entertainment. GrowthService can provide information about content planning, video ideas, thumbnails, editing concepts, Shorts strategies and creator branding.
+</p>
+
+<p>
+Free Fire is a registered game and GrowthService is an independent platform. We do not claim to be affiliated with Garena or the Free Fire brand.
+</p>
+
+<button
+class="action explore"
+data-service="gaming"
+type="button"
+>
+View Gaming Details
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PRODUCTS
+===================================================== -->
+
+<section
+class="section"
+id="products"
+>
+
+<h2 class="title">
+Recommended Products
+</h2>
+
+<p class="subtitle">
+General product categories for gaming, creator and technology setups. Prices are intentionally not shown. Product links open external marketplaces.
+</p>
+
+<div
+class="product-grid"
+id="productGrid"
+>
+</div>
+
+</section>
+
+
+<!-- =====================================================
+MORE SERVICES
+===================================================== -->
+
+<section class="section">
+
+<h2 class="title">
+Additional Digital Services
+</h2>
+
+<p class="subtitle">
+Need something beyond our main categories? Explore additional digital support options or contact us and tell us exactly what you need.
+</p>
+
+<div class="service-grid">
+
+
+<div class="service-card">
+
+<div class="service-icon">
+🎨
+</div>
+
+<h3>
+Logo & Branding
+</h3>
+
+<p>
+Brand identity concepts, logo ideas and visual presentation support for creators, websites and small online projects.
+</p>
+
+<button
+class="action contact-trigger"
+type="button"
+>
+Contact
+</button>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">
+✍️
+</div>
+
+<h3>
+Content Writing
+</h3>
+
+<p>
+Clear website descriptions, service content, creator information and other digital writing assistance.
+</p>
+
+<button
+class="action contact-trigger"
+type="button"
+>
+Contact
+</button>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">
+📊
+</div>
+
+<h3>
+Digital Consultation
+</h3>
+
+<p>
+General guidance for websites, creators, online projects and digital ideas based on your requirements.
+</p>
+
+<button
+class="action contact-trigger"
+type="button"
+>
+Contact
+</button>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">
+🛠️
+</div>
+
+<h3>
+Website Maintenance
+</h3>
+
+<p>
+Help with layout issues, responsive design, buttons, sections and other basic website improvements.
+</p>
+
+<button
+class="action contact-trigger"
+type="button"
+>
+Contact
+</button>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">
+📲
+</div>
+
+<h3>
+Social Media Setup
+</h3>
+
+<p>
+Basic profile, page and content-structure guidance for creators and small online projects.
+</p>
+
+<button
+class="action contact-trigger"
+type="button"
+>
+Contact
+</button>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-icon">
+🚀
+</div>
+
+<h3>
+Custom Project
+</h3>
+
+<p>
+Have a different idea? Describe your project and requirements, and we can discuss a suitable digital solution.
+</p>
+
+<button
+class="action contact-trigger"
+type="button"
+>
+Contact
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+SHARE
+===================================================== -->
+
+<section
+class="section"
+id="share"
+>
+
+<div class="share-box">
+
+<h3>
+Share GrowthService
+</h3>
+
+<p>
+Enjoyed the website? Share it with friends, gamers and creators.
+</p>
+
+<div class="share-buttons">
+
+<button
+class="share-btn"
+id="nativeShare"
+type="button"
+>
+📤 Share
+</button>
+
+<button
+class="share-btn"
+id="copyLink"
+type="button"
+>
+🔗 Copy Link
+</button>
+
+<button
+class="share-btn"
+id="whatsappShare"
+type="button"
+>
+WhatsApp
+</button>
+
+<button
+class="share-btn"
+id="telegramShare"
+type="button"
+>
+Telegram
+</button>
+
+<button
+class="share-btn"
+id="emailShare"
+type="button"
+>
+Email
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+FAQ
+===================================================== -->
+
+<section
+class="section"
+id="faq"
+>
+
+<h2 class="title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq">
+
+<details>
+
+<summary>
+What is GrowthService?
+</summary>
+
+<p>
+GrowthService is an independent digital platform focused on gaming, social-media resources, website development and other digital solutions.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Can GrowthService make a website?
+</summary>
+
+<p>
+Yes. Website development requests can be sent to growthserviceonline@gmail.com with your requirements.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Does GrowthService guarantee followers, views or subscribers?
+</summary>
+
+<p>
+No. We do not promise guaranteed followers, views, likes or subscribers. Social-platform results depend on content, audience, algorithms and many other factors.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Are Amazon and Flipkart owned by GrowthService?
+</summary>
+
+<p>
+No. They are independent external marketplaces. Links simply take visitors to those websites.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Is GrowthService affiliated with Free Fire?
+</summary>
+
+<p>
+No. GrowthService is independent and does not claim affiliation with Garena or Free Fire.
+</p>
+
+</details>
+
+</div>
+
+</section>
+<section class="section"><h2 class="title">
+Why Choose GrowthService?
+</h2><p class="subtitle">
+GrowthService is designed to provide clear, useful and practical digital information for creators, gamers, website owners, businesses and personal projects.
+</p><div class="feature-box"><div class="feature"><div class="big-icon">
+🛡️
+</div><h3>
+Transparent Information
+</h3><p>
+We aim to explain our services, resources and external links clearly so visitors can understand what they are viewing before taking any action.
+</p><ul>
+<li>✓ Clear service descriptions</li>
+<li>✓ Independent platform</li>
+<li>✓ External links identified</li>
+<li>✓ No misleading claims</li>
+</ul></div><div class="feature"><div class="big-icon">
+🎯
+</div><h3>
+Creator & Gaming Resources
+</h3><p>
+Explore useful resources and guidance related to content creation, gaming, social media, websites and digital projects.
+</p><ul>
+<li>✓ YouTube resources</li>
+<li>✓ Social media guidance</li>
+<li>✓ Gaming resources</li>
+<li>✓ Creator support</li>
+</ul></div><div class="feature"><div class="big-icon">
+💻
+</div><h3>
+Digital Services
+</h3><p>
+GrowthService brings different digital service categories together, including website development, SEO guidance, video editing, thumbnails and custom project support.
+</p><ul>
+<li>✓ Website development</li>
+<li>✓ SEO guidance</li>
+<li>✓ Video editing</li>
+<li>✓ Thumbnail design</li>
+</ul></div><div class="feature"><div class="big-icon">
+📚
+</div><h3>
+Helpful Resources
+</h3><p>
+The website provides FAQs, service explanations, external platform resources and general digital information to help visitors make informed decisions.
+</p><ul>
+<li>✓ Detailed service information</li>
+<li>✓ Frequently asked questions</li>
+<li>✓ External resources</li>
+<li>✓ Contact information</li>
+</ul></div></div></section>
+<section class="continue">
+
+  <!-- TIMER -->
+  <div class="timer-wrap">
+    <div class="timer" id="timer">20</div>
+  </div>
+
+  <!-- CONTACT BOX -->
+  <div class="original-contact">
+
+    <h2>
+      Have a Digital Project in Mind?
+    </h2>
+
+    <p>
+      If you have a website idea, creator project, gaming-related requirement or another digital question, you can visit our contact page and choose the communication method that works best for you.
+    </p>
+
+    <a
+      href="contact-details.html"
+      id="continueButton"
+      class="original-contact-btn disabled"
+      aria-disabled="true"
+    >
+      Go to Contact Details →
+    </a>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     NEW ORIGINAL CONTENT
+===================================================== -->
+
+<section class="original-content">
+
+
+<!-- =====================================================
+     HOW GROWTHSERVICE WORKS
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+How GrowthService Works
+</h2>
+
+<p class="original-intro">
+GrowthService is designed as a simple digital platform where visitors can explore services, learn about different digital topics and contact us when they need further assistance. The website brings several useful categories together instead of requiring visitors to search through multiple unrelated pages.
+</p>
+
+<div class="original-steps">
+
+<div class="original-step">
+
+<div class="step-number">
+1
+</div>
+
+<h3>
+Explore
+</h3>
+
+<p>
+Browse services, resources, gaming information and digital categories.
+</p>
+
+</div>
+
+
+<div class="original-step">
+
+<div class="step-number">
+2
+</div>
+
+<h3>
+Understand
+</h3>
+
+<p>
+Read the available information and decide whether a service matches your needs.
+</p>
+
+</div>
+
+
+<div class="original-step">
+
+<div class="step-number">
+3
+</div>
+
+<h3>
+Choose
+</h3>
+
+<p>
+Select the relevant service or digital support category.
+</p>
+
+</div>
+
+
+<div class="original-step">
+
+<div class="step-number">
+4
+</div>
+
+<h3>
+Contact
+</h3>
+
+<p>
+Use our contact page to choose a suitable communication method.
+</p>
+
+</div>
+
+
+<div class="original-step">
+
+<div class="step-number">
+5
+</div>
+
+<h3>
+Discuss
+</h3>
+
+<p>
+Explain your requirements so the appropriate next step can be discussed.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     WHO IS IT FOR
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+Who Can Use GrowthService?
+</h2>
+
+<p class="original-intro">
+GrowthService is intended for people working on different types of online projects. The available information can be useful for creators, gamers, website owners, small businesses and people who are exploring digital tools.
+</p>
+
+<div class="original-grid">
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+🎮
+</div>
+
+<h3>
+Gamers
+</h3>
+
+<p>
+Gaming players and creators can explore gaming content ideas, thumbnail concepts, editing guidance and general creator resources.
+</p>
+
+</div>
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+🎥
+</div>
+
+<h3>
+Content Creators
+</h3>
+
+<p>
+Creators can explore information about YouTube, Instagram, Facebook, video presentation, content planning and creator branding.
+</p>
+
+</div>
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+🌐
+</div>
+
+<h3>
+Website Owners
+</h3>
+
+<p>
+Website owners can explore development, maintenance, SEO basics, content structure and general digital project support.
+</p>
+
+</div>
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+💼
+</div>
+
+<h3>
+Small Businesses
+</h3>
+
+<p>
+Small businesses can explore website creation, digital presentation, branding and basic online project guidance.
+</p>
+
+</div>
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+📱
+</div>
+
+<h3>
+Social Media Users
+</h3>
+
+<p>
+People working with social-media pages and profiles can explore content planning and legitimate platform guidance.
+</p>
+
+</div>
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+💡
+</div>
+
+<h3>
+Personal Projects
+</h3>
+
+<p>
+Visitors with a personal online idea can use the available information to understand possible digital solutions.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     WHAT WE PROVIDE
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+What You Can Find on GrowthService
+</h2>
+
+<p class="original-intro">
+The website combines several digital categories so visitors can understand available options before deciding whether they want to contact us.
+</p>
+
+<ul class="original-list">
+
+<li>
+<strong>🎥 Creator Support:</strong>
+General guidance for content planning, channel presentation, thumbnails, Shorts and creator branding.
+</li>
+
+<li>
+<strong>🎮 Gaming Resources:</strong>
+Gaming-related content ideas, editing concepts, thumbnail planning and creator resources.
+</li>
+
+<li>
+<strong>🌐 Website Development:</strong>
+Responsive website creation for businesses, portfolios, creators, gaming projects and information websites.
+</li>
+
+<li>
+<strong>🔎 SEO Guidance:</strong>
+Basic information about website structure, headings, metadata, internal linking and search visibility.
+</li>
+
+<li>
+<strong>🎬 Video Editing:</strong>
+Support and concepts for presenting gaming videos, Shorts and other digital content.
+</li>
+
+<li>
+<strong>🖼️ Thumbnail Design:</strong>
+Visual concepts and presentation guidance for YouTube, gaming and social-media content.
+</li>
+
+<li>
+<strong>💻 Digital Project Support:</strong>
+General assistance for online projects that may not fit into one specific service category.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- =====================================================
+     OUR APPROACH
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+Our Approach to Digital Services
+</h2>
+
+<p class="original-intro">
+Every digital project is different. Instead of presenting one fixed solution for everyone, GrowthService aims to understand the purpose of a project and provide information or support that is relevant to the requirement.
+</p>
+
+<div class="original-grid">
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+📝
+</div>
+
+<h3>
+Clear Requirements
+</h3>
+
+<p>
+A useful digital solution starts with understanding what the visitor actually wants to create, improve or manage.
+</p>
+
+</div>
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+🎯
+</div>
+
+<h3>
+Practical Guidance
+</h3>
+
+<p>
+The goal is to provide understandable information rather than making unrealistic promises about online results.
+</p>
+
+</div>
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+🔍
+</div>
+
+<h3>
+Transparent Information
+</h3>
+
+<p>
+Services, external platforms and limitations are described clearly so visitors can make informed decisions.
+</p>
+
+</div>
+
+
+</div>
+
+<div class="original-note">
+GrowthService does not guarantee rankings, followers, views, subscribers, likes, reach, monetization or other platform results. Online performance can depend on content quality, audience interest, competition, platform algorithms and many other factors.
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     CREATOR & GAMING
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+Creator & Gaming Guidance
+</h2>
+
+<p class="original-intro">
+Gaming and content creation are constantly changing areas. GrowthService focuses on practical presentation and planning rather than promising a specific outcome.
+</p>
+
+<ul class="original-list">
+
+<li>
+<strong>Content Planning:</strong>
+Ideas can be organized around a creator's niche, audience and publishing style.
+</li>
+
+<li>
+<strong>Video Presentation:</strong>
+Titles, thumbnails, descriptions and opening sections can be planned to communicate the purpose of a video clearly.
+</li>
+
+<li>
+<strong>Short-form Content:</strong>
+Short videos can be planned around concise ideas, strong presentation and consistent publishing.
+</li>
+
+<li>
+<strong>Gaming Content:</strong>
+Gaming creators can explore video concepts, editing approaches, thumbnails and channel presentation.
+</li>
+
+<li>
+<strong>Creator Branding:</strong>
+A consistent name, visual style and presentation can make a creator's content easier for an audience to recognize.
+</li>
+
+</ul>
+
+<div class="original-note">
+GrowthService is independent from YouTube, Instagram, Facebook, Garena and Free Fire. Their names are used only when discussing the relevant platforms or games.
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     WEBSITE DEVELOPMENT
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+Our Website Development Process
+</h2>
+
+<p class="original-intro">
+A website should be planned around its purpose, audience and required features. A typical project can be discussed through the following stages.
+</p>
+
+<div class="original-steps">
+
+<div class="original-step">
+
+<div class="step-number">
+1
+</div>
+
+<h3>
+Requirement
+</h3>
+
+<p>
+Understand the purpose and required pages.
+</p>
+
+</div>
+
+
+<div class="original-step">
+
+<div class="step-number">
+2
+</div>
+
+<h3>
+Structure
+</h3>
+
+<p>
+Plan sections, navigation and content.
+</p>
+
+</div>
+
+
+<div class="original-step">
+
+<div class="step-number">
+3
+</div>
+
+<h3>
+Design
+</h3>
+
+<p>
+Create a responsive and understandable interface.
+</p>
+
+</div>
+
+
+<div class="original-step">
+
+<div class="step-number">
+4
+</div>
+
+<h3>
+Features
+</h3>
+
+<p>
+Add required forms, buttons and project features.
+</p>
+
+</div>
+
+
+<div class="original-step">
+
+<div class="step-number">
+5
+</div>
+
+<h3>
+Improve
+</h3>
+
+<p>
+Review the website and make required improvements.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     BEFORE CONTACTING
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+Before Contacting GrowthService
+</h2>
+
+<p class="original-intro">
+Providing clear information when contacting us can make it easier to understand your requirements and discuss the appropriate next step.
+</p>
+
+<ul class="original-list">
+
+<li>
+<strong>Tell us what you need:</strong>
+Mention the service or type of project you are interested in.
+</li>
+
+<li>
+<strong>Explain your goal:</strong>
+Briefly describe what you want to create, improve or learn.
+</li>
+
+<li>
+<strong>Share relevant details:</strong>
+For a website project, for example, mention the type of website and important features you need.
+</li>
+
+<li>
+<strong>Ask questions:</strong>
+If you are unsure which service fits your requirement, explain your idea and ask for guidance.
+</li>
+
+<li>
+<strong>Protect your information:</strong>
+Never send passwords, OTPs, recovery codes, payment PINs or other sensitive account information.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- =====================================================
+     WHAT WE DON'T PROMISE
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+What GrowthService Does Not Promise
+</h2>
+
+<p class="original-intro">
+Digital platforms can be affected by many factors outside the control of a service provider. For this reason, GrowthService avoids presenting guaranteed results where results cannot reasonably be guaranteed.
+</p>
+
+<ul class="original-list">
+
+<li>
+<strong>❌ Guaranteed followers:</strong>
+No specific follower count is guaranteed.
+</li>
+
+<li>
+<strong>❌ Guaranteed views:</strong>
+Video or website traffic can vary significantly.
+</li>
+
+<li>
+<strong>❌ Guaranteed rankings:</strong>
+SEO cannot guarantee a particular search position.
+</li>
+
+<li>
+<strong>❌ Guaranteed monetization:</strong>
+Platform eligibility and monetization decisions belong to the relevant platform.
+</li>
+
+<li>
+<strong>❌ Guaranteed engagement:</strong>
+Likes, comments, shares and reach depend on many external factors.
+</li>
+
+<li>
+<strong>❌ Platform affiliation:</strong>
+GrowthService does not represent itself as an official partner of third-party platforms unless specifically stated.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- =====================================================
+     DIGITAL SAFETY
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+Digital Safety & Responsible Use
+</h2>
+
+<p class="original-intro">
+Online projects should be handled carefully. Visitors should always protect their accounts and personal information when using websites, social platforms and third-party services.
+</p>
+
+<div class="original-grid">
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+🔐
+</div>
+
+<h3>
+Protect Accounts
+</h3>
+
+<p>
+Use strong passwords, enable available security features and never share login credentials unnecessarily.
+</p>
+
+</div>
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+🚫
+</div>
+
+<h3>
+Avoid Suspicious Requests
+</h3>
+
+<p>
+Do not share OTPs, recovery codes, payment PINs or sensitive account information with unknown people.
+</p>
+
+</div>
+
+
+<div class="original-item">
+
+<div class="original-item-icon">
+🌍
+</div>
+
+<h3>
+Check External Websites
+</h3>
+
+<p>
+Third-party websites have their own policies, security practices and terms. Review them before using their services.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     EXTERNAL PLATFORM TRANSPARENCY
+===================================================== -->
+
+<div class="original-card">
+
+<h2>
+About External Platforms & Resources
+</h2>
+
+<p class="original-intro">
+GrowthService may provide links to external platforms and marketplaces because they can be useful resources for visitors. These websites operate independently from GrowthServic.
+</p>
+
+<ul class="original-list">
+
+<li>
+<strong>YouTube:</strong>
+Used as a reference for video and creator-related information.
+</li>
+
+<li>
+<strong>Instagram:</strong>
+Referenced for social-media and creator-related resources.
+</li>
+
+<li>
+<strong>Facebook:</strong>
+Referenced for page, community and social-media information.
+</li>
+
+<li>
+<strong>Amazon & Flipkart:</strong>
+External marketplaces where visitors can explore product categories.
+</li>
+
+<li>
+<strong>Other platforms:</strong>
+External links may be provided when they are relevant to a particular resource or topic.
+</li>
+
+</ul>
+
+<div class="original-note">
+GrowthService does not control third-party websites. Their availability, prices, features, policies and services can change independently.
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     FINAL CONTACT
+===================================================== -->
+
+<div class="original-contact">
+
+  <h2>
+    Have a Digital Project in Mind?
+  </h2>
+
+  <p>
+    If you have a website idea, creator project, gaming-related requirement or another digital question, you can visit our contact page and choose the communication method that works best for you.
+  </p>
+
+  <a
+  href="contact-details.html"
+  class="original-contact-btn disabled"
+  id="originalContactBtn"
+  aria-disabled="true"
+>
+  Go to Contact Details →
+</a>
+
+</div>
+
+
+</section>
+</main>
+<div
+class="cookie"
+id="cookieBox"
+>
+<p>
+We use cookies and similar technologies for website functionality and basic usage preferences. Read our Privacy Policy for more information.
+</p>
+<button
+id="cookieAccept"
+type="button"
+>
+Accept
+</button>
+
+</div>
+<div
+class="modal"
+id="infoModal"
+>
+
+<div class="modal-box">
+
+<button
+class="modal-close"
+id="modalClose"
+type="button"
+>
+×
+</button>
+
+<h2 id="modalTitle">
+Information
+</h2>
+
+<div id="modalContent">
+</div>
+
+<div
+class="modal-actions"
+id="modalActions"
+>
+</div>
+
+</div>
+
+</div>
+
+
+<div
+class="toast"
+id="toast"
+>
+</div>
+<!-- =====================================================
+     BLOG ARTICLES SECTION (Footer ke upar)
+===================================================== -->
+<section class="section" id="blog-section">
+    <h2 class="title">Latest Articles & Guides</h2>
+    <p class="subtitle">Explore our complete collection of digital, gaming, and creator guides.</p>
+
+    <div class="product-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div class="product"><div class="product-img">🎮</div><h3>Personal Branding Guide</h3><a class="product-btn" href="blog-1.html">Read Article</a></div>
+        <div class="product"><div class="product-img">📺</div><h3>YouTube SEO Mastery Guide</h3><a class="product-btn" href="blog-2.html">Read Article</a></div>
+        <div class="product"><div class="product-img">🔥</div><h3>Gaming Success Guide</h3><a class="product-btn" href="blog-3.html">Read Article</a></div>
+        <div class="product"><div class="product-img">📸</div><h3>Reels Growth Strategy</h3><a class="product-btn" href="blog-4.html">Read Article</a></div>
+        <div class="product"><div class="product-img">👥</div><h3>Facebook Page Growth</h3><a class="product-btn" href="blog-5.html">Read Article</a></div>
+        <div class="product"><div class="product-img">🌐</div><h3>Professional Websites</h3><a class="product-btn" href="blog-6.html">Read Article</a></div>
+        <div class="product"><div class="product-img">🔎</div><h3>SEO Basics 2026</h3><a class="product-btn" href="blog-7.html">Read Article</a></div>
+        <div class="product"><div class="product-img">✂️</div><h3>Editing Tools Guide</h3><a class="product-btn" href="blog-8.html">Read Article</a></div>
+        <div class="product"><div class="product-img">🛡️</div><h3>Digital Safety Tips</h3><a class="product-btn" href="blog-9.html">Read Article</a></div>
+        <div class="product"><div class="product-img">💬</div><h3>Discord Communities</h3><a class="product-btn" href="blog-10.html">Read Article</a></div>
+        <div class="product"><div class="product-img">📱</div><h3>Mobile Web Design</h3><a class="product-btn" href="blog-11.html">Read Article</a></div>
+        <div class="product"><div class="product-img">💼</div><h3>Digital Consultation</h3><a class="product-btn" href="blog-12.html">Read Article</a></div>
+        <div class="product"><div class="product-img">🚀</div><h3>Viral Short Content</h3><a class="product-btn" href="blog-13.html">Read Article</a></div>
+        <div class="product"><div class="product-img">📊</div><h3>Analytics Guide</h3><a class="product-btn" href="blog-14.html">Read Article</a></div>
+        <div class="product"><div class="product-img">💡</div><h3>Digital Freelancing</h3><a class="product-btn" href="blog-15.html">Read Article</a></div>
+    </div>
+</section>
+
+<footer>
+
+<div class="footer">
+
+
+<div class="footer-brand">
+
+<div class="footer-logo">
+GrowthService
+</div>
+
+<p data-edit-key="footerDescription">
+An independent digital platform for gaming, creators, social media resources, website development and useful digital solutions.
+</p>
+
+<button
+class="footer-email contact-trigger"
+type="button"
+>
+✉️ growthserviceonline@gmail.com
+</button>
+
+</div>
+
+
+<div class="footer-section">
+
+<h3 class="footer-section-title">
+Explore
+</h3>
+
+<div class="footer-cards">
+
+<a
+class="footer-card"
+href="index.html"
+>
+<span class="footer-icon">🏠</span>
+<span>Home</span>
+</a>
+
+<button
+class="footer-card menu-link"
+data-info="services"
+type="button"
+>
+<span class="footer-icon">⚡</span>
+<span>Services</span>
+</button>
+
+<button
+class="footer-card menu-link"
+data-info="gaming"
+type="button"
+>
+<span class="footer-icon">🎮</span>
+<span>Gaming</span>
+</button>
+
+<button
+class="footer-card menu-link"
+data-info="products"
+type="button"
+>
+<span class="footer-icon">🛍️</span>
+<span>Products</span>
+</button>
+<a
+class="footer-card"
+href="contact.html"
+>
+    <span class="footer-icon">📩</span>
+<span>Contact Us</span>
+</a>
+</div>
+
+</div>
+<div class="footer-section">
+
+<h3 class="footer-section-title">
+Information
+</h3>
+
+<div class="footer-cards">
+
+<a
+class="footer-card"
+href="about.html"
+>
+<span class="footer-icon">ℹ️</span>
+<span>About Us</span>
+</a>
+
+<a
+class="footer-card"
+href="privacy.html"
+>
+<span class="footer-icon">🔒</span>
+<span>Privacy Policy</span>
+</a>
+
+<a
+class="footer-card"
+href="terms.html"
+>
+<span class="footer-icon">📄</span>
+<span>Terms & Conditions</span>
+</a>
+
+<a
+class="footer-card"
+href="disclaimer.html"
+>
+<span class="footer-icon">⚠️</span>
+<span>Disclaimer</span>
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-section">
+<h3 class="footer-section-title">
+External Platforms
+</h3>
+
+<div class="footer-cards">
+
+<a
+class="footer-card"
+href="https://www.youtube.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span class="footer-icon">▶️</span>
+<span>YouTube</span>
+</a>
+
+<a
+class="footer-card"
+href="https://www.instagram.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span class="footer-icon">📸</span>
+<span>Instagram</span>
+</a>
+
+<a
+class="footer-card"
+href="https://www.facebook.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span class="footer-icon">f</span>
+<span>Facebook</span>
+</a>
+
+<a
+class="footer-card"
+href="https://www.amazon.in/"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span class="footer-icon">🛒</span>
+<span>Amazon</span>
+</a>
+
+<a
+class="footer-card"
+href="https://www.flipkart.com/"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span class="footer-icon">🛍️</span>
+<span>Flipkart</span>
+</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+©
+<span id="year"></span>
+
+<strong>
+GrowthService
+</strong>.
+
+All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import {
+initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+getFirestore,
+collection,
+getDocs,
+getDoc,
+doc
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyClkwldTgRjQO1bBpfHVG_tvJXRC17NQMU",
+
+authDomain:
+"grownexa-e563a.firebaseapp.com",
+
+projectId:
+"grownexa-e563a",
+
+storageBucket:
+"grownexa-e563a.firebasestorage.app",
+
+messagingSenderId:
+"932361119849",
+
+appId:
+"1:932361119849:web:466fcddcda81c95cac9af8",
+
+measurementId:
+"G-9TBCSF778N"
+
+};
+
+
+const firebaseApp =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(firebaseApp);
+
+
+/* =====================================================
+FIXED HTML ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+return String(value ?? "").replace(
+/[&<>"']/g,
+function(char){
+
+const entities = {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+};
+
+return entities[char];
+
+}
+);
+
+}
+const fallbackServices = [
+
+{
+id:"youtube",
+title:"YouTube Creator Support",
+description:"Channel optimization, content planning, discoverability, thumbnail guidance and sustainable creator-growth strategies. This service can include guidance for improving channel presentation, creating better video titles and descriptions, planning Shorts and long-form content, understanding basic audience engagement, organizing content ideas, improving thumbnails, building a consistent creator identity, and developing a practical publishing strategy. GrowthService focuses on legitimate and sustainable creator practices and does not promise guaranteed views, subscribers, likes, watch time or monetization results. Actual results may vary depending on content quality, audience, competition and YouTube's recommendation system.",
+icon:"▶️"
+},
+
+{
+id:"instagram",
+title:"Instagram Creator Support",
+description:"Profile optimization, Reels ideas, content planning, branding and legitimate audience-building strategies. This service can include guidance for creating a professional Instagram profile, planning consistent Reels and posts, improving captions and content presentation, developing a recognizable visual identity, organizing content themes and understanding basic audience engagement. GrowthService focuses on legitimate and sustainable strategies rather than artificial engagement or misleading practices. We do not guarantee followers, likes, views, reach or other results because Instagram performance can vary depending on content quality, audience interest, competition, consistency and platform algorithms.",
+icon:"◎"
+},
+
+{
+id:"facebook",
+title:"Facebook Page Support",
+description:"Page optimization, content ideas, community building and social-media strategy resources. This service can include guidance for improving Facebook page presentation, organizing content ideas, creating engaging posts, planning videos, developing community-focused content and maintaining a consistent online presence. GrowthService aims to provide practical and legitimate social-media guidance for creators, communities and small projects. We do not guarantee followers, reactions, views, reach or engagement because results depend on content quality, audience interest, consistency, competition and Facebook's recommendation systems.",
+icon:"f"
+},
+
+{
+id:"gaming",
+title:"Gaming Creator Support",
+description:"Gaming content ideas, creator support, thumbnails, editing concepts and gaming-community resources. This service is designed for gamers and gaming creators who want to improve the presentation and planning of their online content. It can include video ideas, Shorts concepts, thumbnail planning, editing suggestions, gaming-channel branding, content scheduling and general creator guidance. GrowthService is an independent platform and is not affiliated with Garena or Free Fire. No guaranteed views, subscribers, followers, downloads or gaming-related results are promised.",
+icon:"🎮"
+},
+
+{
+id:"website",
+title:"Website Development",
+description:"Professional responsive websites for businesses, creators, portfolios, gaming projects and online information.",
+icon:"🌐"
+},
+
+{
+id:"seo",
+title:"SEO Guidance",
+description:"Basic website SEO, content structure, metadata, indexing fundamentals and search visibility guidance.",
+icon:"🔎"
+},
+
+{
+id:"video",
+title:"Video Editing",
+description:"Short-form editing concepts, presentation, captions, transitions and creator-focused editing support.",
+icon:"🎬"
+},
+
+{
+id:"thumbnail",
+title:"Thumbnail Design",
+description:"Thumbnail concepts for gaming, YouTube, social media and digital content.",
+icon:"🖼️"
+},
+
+{
+id:"digital",
+title:"Digital Project Support",
+description:"Useful digital services and online solutions for creators, gamers, small businesses and personal projects.",
+icon:"💻"
+}
+
+];
+
+
+/* =====================================================
+RENDER SERVICES
+===================================================== */
+
+function renderServices(services){
+
+const grid =
+document.getElementById("serviceGrid");
+
+if(!grid){
+return;
+}
+
+grid.innerHTML = "";
+
+const safeServices =
+Array.isArray(services)
+? [...services]
+: [...fallbackServices];
+
+
+safeServices
+.sort(
+(a,b)=>
+Number(a.order ?? 99) -
+Number(b.order ?? 99)
+)
+.forEach(service=>{
+
+const card =
+document.createElement("article");
+
+card.className =
+"service-card";
+
+
+const id =
+escapeHtml(service.id);
+
+
+const title =
+escapeHtml(
+service.title || service.id
+);
+
+
+const description =
+escapeHtml(
+service.description || ""
+);
+
+
+const icon =
+escapeHtml(
+service.icon || "⚡"
+);
+
+
+const buttonText =
+escapeHtml(
+service.buttonText ||
+"Explore Service"
+);
+
+
+card.innerHTML = `
+
+<div class="service-icon">
+${icon}
+</div>
+
+<h3>
+${title}
+</h3>
+
+<p>
+${description}
+</p>
+
+<button
+class="action explore"
+data-service="${id}"
+type="button"
+>
+${buttonText}
+</button>
+
+`;
+
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* =====================================================
+LOAD SERVICES
+===================================================== */
+
+async function loadServices(){
+
+try{
+
+const snapshot =
+await getDocs(
+collection(
+db,
+"services"
+)
+);
+
+
+if(
+snapshot.empty
+){
+
+renderServices(
+[...fallbackServices]
+);
+
+return;
+
+}
+
+
+const services =
+snapshot.docs.map(
+item=>({
+
+id:item.id,
+...item.data()
+
+})
+);
+
+
+if(
+services.length === 0
+){
+
+renderServices(
+[...fallbackServices]
+);
+
+return;
+
+}
+
+
+renderServices(services);
+
+}
+catch(error){
+
+console.warn(
+"Firebase services unavailable. Using default services.",
+error
+);
+
+renderServices(
+[...fallbackServices]
+);
+
+}
+
+}
+
+
+/* =====================================================
+LOAD SETTINGS
+===================================================== */
+
+async function loadSettings(){
+
+try{
+
+const snapshot =
+await getDoc(
+doc(
+db,
+"siteData",
+"settings"
+)
+);
+
+
+if(
+!snapshot.exists()
+){
+return;
+}
+
+
+const data =
+snapshot.data();
+
+
+document
+.querySelectorAll(
+'[data-edit-key="siteName"]'
+)
+.forEach(element=>{
+
+if(data.siteName){
+element.textContent =
+data.siteName;
+}
+
+});
+
+
+const badge =
+document.querySelector(
+'[data-edit-key="heroBadge"]'
+);
+
+if(
+badge &&
+data.heroBadge
+){
+
+badge.textContent =
+data.heroBadge;
+
+}
+
+
+const heading =
+document.querySelector(
+'[data-edit-key="heroHeading"]'
+);
+
+if(
+heading &&
+data.heroHeading
+){
+
+/*
+Do not use textContent here for the styled
+heading because it would remove the blue span.
+*/
+
+const headingText =
+String(data.heroHeading);
+
+heading.innerHTML =
+escapeHtml(headingText);
+
+}
+
+
+const description =
+document.querySelector(
+'[data-edit-key="heroDescription"]'
+);
+
+if(
+description &&
+data.heroDescription
+){
+
+description.textContent =
+data.heroDescription;
+
+}
+
+
+const footer =
+document.querySelector(
+'[data-edit-key="footerDescription"]'
+);
+
+if(
+footer &&
+data.footerDescription
+){
+
+footer.textContent =
+data.footerDescription;
+
+}
+
+}
+catch(error){
+
+console.warn(
+"Firebase settings unavailable. Using HTML defaults.",
+error
+);
+
+}
+
+}
+
+
+/* =====================================================
+DEFAULT PRODUCTS
+===================================================== */
+
+function renderDefaultProducts(){
+
+const grid =
+document.getElementById(
+"productGrid"
+);
+
+if(!grid){
+return;
+}
+
+
+const products = [
+
+["🖱️","Gaming Mouse","Amazon","https://www.amazon.in/"],
+
+["⌨️","Gaming Keyboard","Amazon","https://www.amazon.in/"],
+
+["🎧","Gaming Headset","Amazon","https://www.amazon.in/"],
+
+["🎙️","Creator Microphone","Amazon","https://www.amazon.in/"],
+
+["📷","Web Camera","Amazon","https://www.amazon.in/"],
+
+["💡","RGB Lighting","Amazon","https://www.amazon.in/"],
+
+["🖥️","Gaming Monitor","Amazon","https://www.amazon.in/"],
+
+["🪑","Gaming Chair","Amazon","https://www.amazon.in/"],
+
+["💾","External Storage","Amazon","https://www.amazon.in/"],
+
+["🔋","Power Bank","Amazon","https://www.amazon.in/"],
+
+["📱","Phone Accessories","Flipkart","https://www.flipkart.com/"],
+
+["🎮","Game Controller","Flipkart","https://www.flipkart.com/"],
+
+["💻","Laptop Accessories","Amazon","https://www.amazon.in/"],
+
+["🧹","Desk Mat","Amazon","https://www.amazon.in/"],
+
+["🔌","USB Hub","Amazon","https://www.amazon.in/"],
+
+["💡","Desk Lamp","Amazon","https://www.amazon.in/"],
+
+["📱","Phone Stand","Flipkart","https://www.flipkart.com/"],
+
+["🎒","Laptop Bag","Flipkart","https://www.flipkart.com/"],
+
+["🔊","Bluetooth Speaker","Amazon","https://www.amazon.in/"],
+
+["💽","SSD Storage","Amazon","https://www.amazon.in/"],
+
+["🧑‍💻","Laptop Cooling Pad","Amazon","https://www.amazon.in/"],
+
+["🎮","Gaming Controller","Amazon","https://www.amazon.in/"],
+
+["📡","Wi-Fi Router","Amazon","https://www.amazon.in/"],
+
+["🔒","Webcam Privacy Cover","Amazon","https://www.amazon.in/"]
+
+];
+
+
+grid.innerHTML =
+products.map(
+product=>{
+
+return `
+
+<div class="product">
+
+<div class="product-img">
+${product[0]}
+</div>
+
+<h3>
+${escapeHtml(product[1])}
+</h3>
+
+<p>
+Useful ${escapeHtml(product[1].toLowerCase())}
+category for creators and technology users.
+</p>
+
+<a
+class="product-btn"
+href="${escapeHtml(product[3])}"
+target="_blank"
+rel="noopener noreferrer"
+>
+View on ${escapeHtml(product[2])}
+</a>
+
+</div>
+
+`;
+
+}
+).join("");
+
+}
+
+
+/* =====================================================
+LOAD PRODUCTS
+===================================================== */
+
+async function loadProducts(){
+
+const grid =
+document.getElementById(
+"productGrid"
+);
+
+if(!grid){
+return;
+}
+
+
+/*
+Immediately show default products.
+This guarantees the main page is never empty.
+*/
+
+renderDefaultProducts();
+
+
+try{
+
+const snapshot =
+await getDocs(
+collection(
+db,
+"products"
+)
+);
+
+
+if(
+snapshot.empty
+){
+
+return;
+
+}
+
+
+const firebaseProducts =
+snapshot.docs.map(
+item=>({
+
+id:item.id,
+...item.data()
+
+})
+);
+
+
+if(
+firebaseProducts.length === 0
+){
+
+return;
+
+}
+
+
+/*
+Only replace default products when
+valid Firebase products actually exist.
+*/
+
+grid.innerHTML = "";
+
+
+firebaseProducts.forEach(
+product=>{
+
+const div =
+document.createElement("div");
+
+div.className =
+"product";
+
+
+const image =
+String(
+product.image || "🛍️"
+);
+
+
+let imageHTML;
+
+
+if(
+image.startsWith("http://") ||
+image.startsWith("https://")
+){
+
+imageHTML = `
+
+<img
+src="${escapeHtml(image)}"
+alt="${escapeHtml(product.name || "Product")}"
+style="
+max-width:80px;
+max-height:80px;
+object-fit:contain;
+"
+>
+
+`;
+
+}
+else{
+
+imageHTML =
+escapeHtml(image);
+
+}
+
+
+const productUrl =
+product.url ||
+"https://www.amazon.in/";
+
+
+const marketplace =
+product.marketplace ||
+"Marketplace";
+
+
+div.innerHTML = `
+
+<div class="product-img">
+
+${imageHTML}
+
+</div>
+
+<h3>
+${escapeHtml(
+product.name || "Product"
+)}
+</h3>
+
+<p>
+${escapeHtml(
+product.description ||
+"Useful product category for creators and technology users."
+)}
+</p>
+
+<a
+class="product-btn"
+href="${escapeHtml(productUrl)}"
+target="_blank"
+rel="noopener noreferrer"
+>
+View on ${escapeHtml(marketplace)}
+</a>
+
+`;
+
+
+grid.appendChild(div);
+
+});
+
+}
+catch(error){
+
+console.warn(
+"Firebase products unavailable. Default products kept.",
+error
+);
+
+/*
+Do NOT clear the grid here.
+The default products are already visible.
+*/
+
+}
+
+}
+
+
+/* =====================================================
+START FIREBASE LOADS
+===================================================== */
+
+renderServices(
+[...fallbackServices]
+);
+
+renderDefaultProducts();
+
+loadServices();
+loadProducts();
+loadSettings();
+
+</script>
+
+
+<!-- =====================================================
+NORMAL JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+MENU
+===================================================== */
+
+const menuButton =
+document.getElementById(
+"menuButton"
+);
+
+const menuOverlay =
+document.getElementById(
+"menuOverlay"
+);
+
+const menuClose =
+document.getElementById(
+"menuClose"
+);
+
+
+function openMenu(){
+
+menuOverlay.classList.add(
+"active"
+);
+
+document.body.classList.add(
+"lock"
+);
+
+}
+
+
+function closeMenu(){
+
+menuOverlay.classList.remove(
+"active"
+);
+
+document.body.classList.remove(
+"lock"
+);
+
+}
+
+
+menuButton.addEventListener(
+"click",
+openMenu
+);
+
+
+menuClose.addEventListener(
+"click",
+closeMenu
+);
+
+
+menuOverlay.addEventListener(
+"click",
+function(event){
+
+if(
+event.target === menuOverlay
+){
+
+closeMenu();
+
+}
+
+}
+);
+
+
+/* =====================================================
+ESC KEY
+===================================================== */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key === "Escape"
+){
+
+closeMenu();
+
+closeInfo();
+
+}
+
+}
+);
+
+
+/* =====================================================
+SEARCH
+===================================================== */
+
+const searchInput =
+document.getElementById(
+"searchInput"
+);
+
+
+function googleSearch(){
+
+const q =
+searchInput.value.trim();
+
+if(!q){
+return;
+}
+
+
+window.location.href =
+"https://www.google.com/search?q=" +
+encodeURIComponent(q);
+
+}
+
+
+document
+.getElementById(
+"searchButton"
+)
+.addEventListener(
+"click",
+googleSearch
+);
+
+
+searchInput.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key === "Enter"
+){
+
+googleSearch();
+
+}
+
+}
+);
+
+
+/* =====================================================
+COUNTDOWN
+===================================================== */
+
+let seconds = 20;
+
+const timer =
+document.getElementById(
+"timer"
+);
+
+const continueButton =
+document.getElementById(
+"continueButton"
+);
+
+
+const countdown =
+setInterval(
+function(){
+
+seconds--;
+
+timer.textContent =
+seconds;
+
+
+if(
+seconds <= 0
+){
+
+clearInterval(
+countdown
+);
+
+timer.textContent =
+"✓";
+
+
+continueButton.classList.add(
+"active"
+);
+
+
+continueButton.setAttribute(
+"aria-disabled",
+"false"
+);
+
+}
+
+},
+1000
+);
+
+
+/* =====================================================
+COOKIE
+===================================================== */
+
+const cookieBox =
+document.getElementById(
+"cookieBox"
+);
+
+
+if(
+!localStorage.getItem(
+"growth_cookie"
+)
+){
+
+setTimeout(
+function(){
+
+cookieBox.classList.add(
+"show"
+);
+
+},
+1500
+);
+
+}
+
+
+document
+.getElementById(
+"cookieAccept"
+)
+.addEventListener(
+"click",
+function(){
+
+localStorage.setItem(
+"growth_cookie",
+"accepted"
+);
+
+cookieBox.classList.remove(
+"show"
+);
+
+}
+);
+
+
+/* =====================================================
+TOAST
+===================================================== */
+
+function toast(message){
+
+const element =
+document.getElementById(
+"toast"
+);
+
+element.textContent =
+message;
+
+element.classList.add(
+"show"
+);
+
+
+setTimeout(
+function(){
+
+element.classList.remove(
+"show"
+);
+
+},
+1800
+);
+
+}
+
+
+/* =====================================================
+SHARE
+===================================================== */
+
+const websiteUrl =
+window.location.href;
+
+
+function copyWebsite(){
+
+if(
+navigator.clipboard
+){
+
+navigator.clipboard
+.writeText(websiteUrl)
+.then(
+function(){
+
+toast(
+"Website link copied!"
+);
+
+}
+)
+.catch(
+function(){
+
+toast(
+"Copy is not available."
+);
+
+}
+);
+
+}
+else{
+
+toast(
+"Copy is not available."
+);
+
+}
+
+}
+
+
+document
+.getElementById(
+"copyLink"
+)
+.addEventListener(
+"click",
+copyWebsite
+);
+
+
+document
+.getElementById(
+"nativeShare"
+)
+.addEventListener(
+"click",
+async function(){
+
+if(
+navigator.share
+){
+
+try{
+
+await navigator.share({
+
+title:"GrowthService",
+
+text:"Explore GrowthService",
+
+url:websiteUrl
+
+});
+
+}
+catch(error){}
+
+}
+else{
+
+copyWebsite();
+
+}
+
+}
+);
+
+
+document
+.getElementById(
+"whatsappShare"
+)
+.addEventListener(
+"click",
+function(){
+
+window.open(
+
+"https://wa.me/?text=" +
+encodeURIComponent(
+"Check out GrowthService: " +
+websiteUrl
+),
+
+"_blank"
+
+);
+
+}
+);
+
+
+document
+.getElementById(
+"telegramShare"
+)
+.addEventListener(
+"click",
+function(){
+
+window.open(
+
+"https://t.me/share/url?url=" +
+encodeURIComponent(websiteUrl) +
+"&text=" +
+encodeURIComponent(
+"Check out GrowthService"
+),
+
+"_blank"
+
+);
+
+}
+);
+
+
+document
+.getElementById(
+"emailShare"
+)
+.addEventListener(
+"click",
+function(){
+
+location.href =
+
+"mailto:?subject=" +
+encodeURIComponent(
+"Check out GrowthService"
+) +
+
+"&body=" +
+encodeURIComponent(
+"Visit GrowthService: " +
+websiteUrl
+);
+
+}
+);
+
+
+/* =====================================================
+MODAL DATA
+===================================================== */
+
+const data = {
+
+youtube:{
+title:"YouTube Growth",
+text:"We provide general creator guidance around channel presentation, content planning, discoverability, thumbnails, Shorts ideas and sustainable audience building. We do not sell fake engagement or guarantee platform results.",
+list:[
+"Channel and profile presentation",
+"Content planning ideas",
+"Thumbnail and title guidance",
+"Shorts and long-form strategy",
+"Basic discoverability guidance"
+]
+},
+
+
+instagram:{
+title:"Instagram Growth",
+text:"General guidance for Instagram profiles, Reels, content structure, branding and legitimate audience development. Results are never guaranteed.",
+list:[
+"Profile presentation",
+"Reels content ideas",
+"Caption and hashtag guidance",
+"Brand consistency",
+"Organic audience-building concepts"
+]
+},
+
+
+facebook:{
+title:"Facebook Growth",
+text:"Page optimization, content ideas, community building and social-media strategy resources. This service can include guidance for improving Facebook page presentation, organizing content ideas, creating engaging posts, planning videos, developing community-focused content and maintaining a consistent online presence. GrowthService aims to provide practical and legitimate social-media guidance for creators, communities and small projects. We do not guarantee followers, reactions, views, reach or engagement because results depend on content quality, audience interest, consistency, competition and Facebook's recommendation systems.",
+list:[
+"Page presentation",
+"Content planning",
+"Community ideas",
+"Video strategy",
+"Basic creator guidance"
+]
+},
+
+
+gaming:{
+title:"Free Fire & Gaming",
+text:"Gaming-focused resources for creators and players. GrowthService is independent and is not affiliated with Garena or Free Fire.",
+list:[
+"Gaming video ideas",
+"Thumbnail concepts",
+"Shorts ideas",
+"Editing concepts",
+"Creator branding",
+"Gaming content planning"
+]
+},
+
+
+website:{
+title:"Website Development",
+text:"Professional responsive website development for businesses, creators, gaming projects, portfolios, information websites and custom digital ideas.",
+list:[
+"Mobile responsive design",
+"PC and tablet friendly layout",
+"Modern user interface",
+"Multiple website pages",
+"Contact systems",
+"Custom sections",
+"Future website expansion"
+]
+},
+
+
+video:{
+title:"Video Editing",
+text:"Creator-focused video editing support for Shorts, gaming videos, social media content and other digital videos.",
+list:[
+"Shorts editing concepts",
+"Gaming video presentation",
+"Captions and text",
+"Transitions and effects",
+"Basic audio presentation",
+"Creator-focused editing ideas"
+]
+},
+
+
+thumbnail:{
+title:"Thumbnail Design",
+text:"Thumbnail concepts and design guidance for YouTube, gaming videos, Shorts and other creator content.",
+list:[
+"Gaming thumbnail concepts",
+"YouTube thumbnail layouts",
+"Text placement guidance",
+"Visual hierarchy",
+"Creator branding",
+"Click-friendly presentation without misleading claims"
+]
+},
+
+
+seo:{
+title:"SEO Guidance",
+text:"Basic SEO guidance for website structure and discoverability. SEO cannot guarantee rankings or traffic.",
+list:[
+"Page titles and descriptions",
+"Content structure",
+"Internal linking basics",
+"Search-friendly headings",
+"Technical basics"
+]
+},
+
+
+digital:{
+title:"Digital Solutions",
+text:"A flexible category for website, creator and small-project requirements that do not fit another service.",
+list:[
+"Website improvements",
+"Digital project planning",
+"Creator resources",
+"Basic online setup guidance"
+]
+},
+services:{
+title:"Our Digital Services",
+text:"GrowthService provides digital guidance and support for creators, gamers, websites, social media and custom online projects. If you need something specific, simply contact us and describe what you need.",
+list:[
+"YouTube and creator guidance",
+"Instagram and Facebook guidance",
+"Gaming and Free Fire creator resources",
+"Website development",
+"SEO and digital guidance",
+"Video editing and thumbnail support",
+"Custom digital projects"
+]
+},
+products:{
+title:"Products",
+text:"The product section contains general categories and external marketplace links. GrowthService does not set marketplace prices and is not the owner of Amazon or Flipkart.",
+list:[
+"Gaming accessories",
+"Creator equipment",
+"Computer accessories",
+"Phone accessories",
+"Storage and networking"
+]
+},
+
+
+about:{
+title:"About GrowthService",
+text:"GrowthService is an independent digital project created to bring together useful information, creator resources, gaming resources, website services and digital solutions in one simple platform.",
+list:[
+"Independent platform",
+"Creator and gaming focused",
+"Website development support",
+"Useful digital resources",
+"External links clearly identified"
+]
+},
+
+
+privacy:{
+title:"Privacy Policy",
+text:"This page currently uses local browser storage for a cookie-consent preference and does not ask visitors to create an account on the home page. When additional data services are added, the privacy policy should be updated before collecting personal information.",
+list:[
+"Cookie preference is stored locally",
+"Do not submit sensitive information by email",
+"External websites have their own privacy policies",
+"A complete policy page should be published before advertising approval"
+]
+},
+
+
+terms:{
+title:"Terms & Conditions",
+text:"GrowthService provides information and digital services on an independent basis. External platforms and marketplaces remain responsible for their own services. Service outcomes can vary and no platform growth result is guaranteed.",
+list:[
+"Use the website lawfully",
+"Do not misuse services",
+"External links are independent",
+"No guaranteed social-media results",
+"Service terms should be confirmed before paid work"
+]
+},
+
+
+disclaimer:{
+title:"Disclaimer",
+text:"GrowthService is not affiliated with YouTube, Instagram, Facebook, Garena, Free Fire, Amazon or Flipkart. Brand names and logos belong to their respective owners. External links open third-party websites.",
+list:[
+"Independent platform",
+"No affiliation unless expressly stated",
+"No guaranteed traffic or engagement",
+"Third-party sites have separate terms"
+]
+},
+
+
+contact:{
+title:"Contact GrowthService",
+text:"For website development, digital services, custom projects or general enquiries, use the email below. You can copy the address or open Gmail directly.",
+list:[
+"Email: growthserviceonline@gmail.com",
+"Include the service you need",
+"Describe your requirements clearly",
+"Do not send passwords or sensitive information"
+],
+email:true
+}
+
+};
+
+
+/* =====================================================
+MODAL
+===================================================== */
+
+const modal =
+document.getElementById(
+"infoModal"
+);
+
+const modalTitle =
+document.getElementById(
+"modalTitle"
+);
+
+const modalContent =
+document.getElementById(
+"modalContent"
+);
+
+const modalActions =
+document.getElementById(
+"modalActions"
+);
+
+
+const CONTACT_EMAIL =
+"growthserviceonline@gmail.com";
+
+
+function escapeModalText(value){
+
+return String(
+value ?? ""
+).replace(
+/[&<>"']/g,
+function(char){
+
+const entities = {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+};
+
+return entities[char];
+
+}
+);
+
+}
+
+
+function copyEmail(){
+
+if(
+navigator.clipboard
+){
+
+navigator.clipboard
+.writeText(
+CONTACT_EMAIL
+)
+.then(
+function(){
+
+toast(
+"Email copied!"
+);
+
+}
+)
+.catch(
+fallbackCopyEmail
+);
+
+}
+else{
+
+fallbackCopyEmail();
+
+}
+
+}
+
+
+function fallbackCopyEmail(){
+
+const textarea =
+document.createElement(
+"textarea"
+);
+
+textarea.value =
+CONTACT_EMAIL;
+
+textarea.style.position =
+"fixed";
+
+textarea.style.opacity =
+"0";
+
+document.body.appendChild(
+textarea
+);
+
+textarea.focus();
+textarea.select();
+
+
+try{
+
+document.execCommand(
+"copy"
+);
+
+toast(
+"Email copied!"
+);
+
+}
+catch(error){
+
+toast(
+"Please copy the email manually."
+);
+
+}
+
+
+textarea.remove();
+
+}
+
+
+function openGmail(){
+
+const gmailUrl =
+
+"https://mail.google.com/mail/?view=cm&fs=1&to=" +
+
+encodeURIComponent(
+CONTACT_EMAIL
+) +
+
+"&su=" +
+
+encodeURIComponent(
+"GrowthService Enquiry"
+);
+
+
+window.open(
+gmailUrl,
+"_blank"
+);
+
+}
+
+
+function openEmailApp(){
+
+window.location.href =
+
+"mailto:" +
+CONTACT_EMAIL +
+
+"?subject=" +
+
+encodeURIComponent(
+"GrowthService Enquiry"
+);
+
+}
+
+
+function openContact(){
+
+openInfo(
+"contact"
+);
+
+}
+
+
+/* =====================================================
+OPEN MODAL
+===================================================== */
+
+function openInfo(key){
+
+const d =
+data[key];
+
+
+if(!d){
+
+console.warn(
+"No modal data found for:",
+key
+);
+
+return;
+
+}
+
+
+modalTitle.textContent =
+d.title;
+
+
+let contentHTML = "";
+
+
+contentHTML +=
+"<p>" +
+escapeModalText(d.text) +
+"</p>";
+
+
+if(
+d.email
+){
+
+contentHTML += `
+
+<div class="contact-email-box">
+
+<span class="contact-email-label">
+Contact Email
+</span>
+
+<span class="contact-email">
+${escapeModalText(CONTACT_EMAIL)}
+</span>
+
+</div>
+
+`;
+
+}
+
+
+if(
+Array.isArray(d.list)
+){
+
+contentHTML +=
+"<ul class='modal-list'>";
+
+
+d.list.forEach(
+function(item){
+
+contentHTML +=
+
+"<li>✓ " +
+escapeModalText(item) +
+"</li>";
+
+}
+);
+
+
+contentHTML +=
+"</ul>";
+
+}
+
+
+modalContent.innerHTML =
+contentHTML;
+
+
+modalActions.innerHTML =
+"";
+
+
+if(
+d.email
+){
+
+const copyButton =
+document.createElement(
+"button"
+);
+
+copyButton.className =
+"copy";
+
+copyButton.type =
+"button";
+
+copyButton.textContent =
+"📋 Copy Email";
+
+copyButton.addEventListener(
+"click",
+copyEmail
+);
+
+modalActions.appendChild(
+copyButton
+);
+
+
+const gmailButton =
+document.createElement(
+"button"
+);
+
+gmailButton.className =
+"green";
+
+gmailButton.type =
+"button";
+
+gmailButton.textContent =
+"✉️ Open Gmail";
+
+gmailButton.addEventListener(
+"click",
+openGmail
+);
+
+modalActions.appendChild(
+gmailButton
+);
+
+
+const appButton =
+document.createElement(
+"button"
+);
+
+appButton.className =
+"blue";
+
+appButton.type =
+"button";
+
+appButton.textContent =
+"📧 Email App";
+
+appButton.addEventListener(
+"click",
+openEmailApp
+);
+
+modalActions.appendChild(
+appButton
+);
+
+}
+
+
+if(
+d.link
+){
+
+const linkButton =
+document.createElement(
+"a"
+);
+
+linkButton.href =
+d.link;
+
+linkButton.className =
+"blue";
+
+linkButton.textContent =
+d.linkText ||
+"Open";
+
+modalActions.appendChild(
+linkButton
+);
+
+}
+
+
+modal.classList.add(
+"show"
+);
+
+document.body.classList.add(
+"lock"
+);
+
+}
+
+
+/* =====================================================
+CLOSE MODAL
+===================================================== */
+
+function closeInfo(){
+
+modal.classList.remove(
+"show"
+);
+
+document.body.classList.remove(
+"lock"
+);
+
+}
+
+
+document
+.getElementById(
+"modalClose"
+)
+.addEventListener(
+"click",
+closeInfo
+);
+
+
+modal.addEventListener(
+"click",
+function(event){
+
+if(
+event.target === modal
+){
+
+closeInfo();
+
+}
+
+}
+);
+
+
+/* =====================================================
+INFO BUTTONS
+===================================================== */
+
+document
+.querySelectorAll(
+"[data-info]"
+)
+.forEach(
+function(element){
+
+element.addEventListener(
+"click",
+function(){
+
+closeMenu();
+
+openInfo(
+element.dataset.info
+);
+
+}
+);
+
+}
+);
+
+
+/* =====================================================
+CONTACT BUTTONS
+===================================================== */
+
+document
+.querySelectorAll(
+".contact-trigger"
+)
+.forEach(
+function(button){
+
+button.addEventListener(
+"click",
+function(){
+
+openContact();
+
+}
+);
+
+}
+);
+
+
+/* =====================================================
+DYNAMIC SERVICE BUTTONS
+===================================================== */
+
+document.addEventListener(
+"click",
+function(event){
+
+const button =
+event.target.closest(
+".explore"
+);
+
+
+if(!button){
+return;
+}
+
+
+const service =
+button.dataset.service;
+
+
+if(service){
+
+openInfo(
+service
+);
+
+}
+
+}
+);
+
+document
+.getElementById(
+"year"
+)
+.textContent =
+new Date()
+.getFullYear();
+
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const timer = document.getElementById("timer");
+
+  const continueButton = document.getElementById("continueButton");
+  const originalContactBtn = document.getElementById("originalContactBtn");
+
+  let timeLeft = 20;
+
+  // DONO buttons starting me LOCK
+  if (continueButton) {
+    continueButton.classList.add("disabled");
+    continueButton.setAttribute("aria-disabled", "true");
+  }
+
+  if (originalContactBtn) {
+    originalContactBtn.classList.add("disabled");
+    originalContactBtn.setAttribute("aria-disabled", "true");
+  }
+
+  // DONO buttons ko timer khatam hone tak block karo
+  function blockButton(button) {
+    if (!button) return;
+
+    button.addEventListener("click", function (e) {
+      if (timeLeft > 0) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    });
+  }
+
+  blockButton(continueButton);
+  blockButton(originalContactBtn);
+
+
+  // 20 SECOND COUNTDOWN
+  const countdown = setInterval(function () {
+
+    timeLeft--;
+
+    if (timeLeft > 0) {
+
+      if (timer) {
+        timer.textContent = timeLeft;
+      }
+
+    } else {
+
+      if (timer) {
+        timer.textContent = "✓";
+      }
+
+      // TIMER COMPLETE — DONO UNLOCK
+      if (continueButton) {
+        continueButton.classList.remove("disabled");
+        continueButton.removeAttribute("aria-disabled");
+      }
+
+      if (originalContactBtn) {
+        originalContactBtn.classList.remove("disabled");
+        originalContactBtn.removeAttribute("aria-disabled");
+      }
+
+      clearInterval(countdown);
+    }
+
+  }, 1000);
+
+});
+</script>
+</body>
+</html>

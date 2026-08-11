@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | GrowthService</title>
+<meta name="description" content="Learn more about GrowthService, a digital platform for gaming, creators, websites and digital services.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#eff6ff,#f8fafc,#f5f3ff);
+color:#475569;
+min-height:100vh;
+}
+header{
+background:#fff;
+border-bottom:1px solid #e2e8f0;
+padding:15px 18px;
+position:sticky;
+top:0;
+z-index:10;
+}
+.nav{
+max-width:1050px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+.logo{
+text-decoration:none;
+color:#111827;
+font-size:20px;
+font-weight:900;
+}
+.back{
+text-decoration:none;
+background:#f1f5f9;
+color:#111827;
+padding:10px 14px;
+border-radius:10px;
+font-weight:700;
+font-size:13px;
+}
+main{
+max-width:850px;
+margin:auto;
+padding:45px 18px 70px;
+}
+h1{
+text-align:center;
+font-size:42px;
+color:#050505;
+margin-bottom:10px;
+}
+.subtitle{
+text-align:center;
+color:#64748b;
+margin-bottom:30px;
+}
+.card{
+background:#fff;
+border:1px solid #e2e8f0;
+border-radius:22px;
+padding:25px;
+margin-bottom:18px;
+box-shadow:0 10px 35px rgba(15,23,42,.06);
+}
+h2{
+color:#111827;
+font-size:22px;
+margin-bottom:10px;
+}
+p{
+font-size:14px;
+line-height:1.8;
+margin-bottom:10px;
+}
+ul{
+padding-left:20px;
+line-height:1.9;
+font-size:14px;
+}
+footer{
+background:#0b1120;
+color:#94a3b8;
+text-align:center;
+padding:30px 18px;
+font-size:12px;
+}
+footer a{
+color:#cbd5e1;
+margin:0 7px;
+text-decoration:none;
+}
+@media(max-width:600px){
+h1{font-size:32px}
+.card{padding:20px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<a href="index.html" class="logo">GrowthService</a>
+<a href="index.html" class="back">← Home</a>
+</div>
+</header>
+
+<main>
+
+<h1>About GrowthService</h1>
+<p class="subtitle">Digital • Gaming • Creator • Web</p>
+
+<div class="card">
+<h2>Who We Are</h2>
+<p>
+GrowthService is an independent digital platform focused on gaming,
+creator support, website development and useful digital services.
+</p>
+</div>
+
+<div class="card">
+<h2>What We Do</h2>
+<ul>
+<li>Website development and digital projects</li>
+<li>Gaming-related services and information</li>
+<li>Creator and social-media related assistance</li>
+<li>Digital resources and online solutions</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Our Goal</h2>
+<p>
+Our goal is to provide simple, useful and easy-to-understand digital
+services and information while maintaining transparency and safety.
+</p>
+</div>
+
+<div class="card">
+<h2>Contact</h2>
+<p>
+For enquiries, projects or support, please use our official contact page.
+</p>
+<p>
+<a href="contact.html">Go to Contact Page →</a>
+</p>
+</div>
+
+</main>
+
+<footer>
+<p>© <span id="year"></span> GrowthService. All Rights Reserved.</p>
+<p>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy-policy.html">Privacy</a>
+<a href="terms.html">Terms</a>
+</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
