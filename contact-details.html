@@ -1571,9 +1571,11 @@ function renderContact(data){
   c.email ||
   defaultContact.email;
 
-  telegramValue.textContent =
-  c.telegram ||
-  "Not configured";
+     telegramValue.textContent =
+   c.telegram ?
+   "Available" :
+   "Not configured";
+
 
   whatsappValue.textContent =
   c.whatsapp ?
